@@ -26,14 +26,19 @@ defmodule TinyrulWeb.PageController do
     short_url = String.trim(params["code"])
 
     with data <- get_one_url(short_url),
+         false <- is_nil(data),
          {:ok, _struct} <- update_redirect_count(short_url) do
       if NaiveDateTime.diff(NaiveDateTime.utc_now(), data.inserted_at) < 24 * 60 * 60 do
         conn
         |> redirect(external: data.original_url)
       else
         conn
-        |> send_resp(500, "Ссылка недействительна")
+        |> send_resp(500, "link is invalid")
       end
+    else
+      _any ->
+        conn
+        |> send_resp(404, "not found")
     end
   end
 end
