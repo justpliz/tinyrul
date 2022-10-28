@@ -20,9 +20,6 @@ config :tinyrul, TinyrulWeb.Endpoint,
   secret_key_base: "HEPT3GDivGWT47GIH3vkDrWSlMl2dRGIC/32FDl8SFvLCQducShQ0JJHXB17bt+T",
   server: false
 
-# In test we don't send emails.
-config :tinyrul, Tinyrul.Mailer, adapter: Swoosh.Adapters.Test
-
 # Print only warnings and errors during test
 config :logger, level: :warn
 

@@ -22,6 +22,7 @@ defmodule Tinyrul.Application do
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
+    spawn(Tinyrul.Deleter, :process, [])
     opts = [strategy: :one_for_one, name: Tinyrul.Supervisor]
     Supervisor.start_link(children, opts)
   end
