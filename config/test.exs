@@ -8,8 +8,8 @@ import Config
 config :tinyrul, Tinyrul.Repo,
   username: "postgres",
   password: "postgres",
-  hostname: "localhost",
-  database: "tinyrul_test#{System.get_env("MIX_TEST_PARTITION")}",
+  database: "tinyrul_dev",
+  hostname: "192.168.0.135",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
 

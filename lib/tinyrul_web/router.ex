@@ -9,10 +9,8 @@ defmodule TinyrulWeb.Router do
     pipe_through :api
 
     get "/", ApiController, :index
-    post "/url", ApiController, :url
-    get "/short_url", ApiController, :short_url
+    post "/url", ApiController, :create_url
 
-    get "/:code", ApiController, :redirect_to_original_url
+    get "/:code", ApiController, :redirect_by_original_url
   end
-
 end
